@@ -170,7 +170,7 @@ void setup() {
 
 
 
-    // lcd_print("Hello :D");
+    lcd_print("Hello :D");
     // lcd_print("Pot Raw: ");
     // lcd_set_cursor(0, 1);
     // lcd_print("Mapped: ");
@@ -284,57 +284,57 @@ void loop() {
 //     // Add a small delay so the LCD/Serial isn't updated too rapidly
 //     sleep_ms(300);
 
-// // Check for a card using the SDK-based driver function
-//     if (rfid_is_card_present()) {
-//         // If a card is present, read its UID
-//         String cardUID = rfid_read_card_uid();
+// Check for a card using the SDK-based driver function
+    if (rfid_is_card_present()) {
+        // If a card is present, read its UID
+        String cardUID = rfid_read_card_uid();
 
-//         Serial.print("Card detected: ");
-//         Serial.println(cardUID);
+        Serial.print("Card detected: ");
+        Serial.println(cardUID);
 
-//         // Display UID on LCD
-//         lcd_set_cursor(0, 1);
-//         // Use lcd_print as defined in your driver
-//         lcd_print(cardUID.c_str()); 
+        // Display UID on LCD
+        lcd_set_cursor(0, 1);
+        // Use lcd_print as defined in your driver
+        lcd_print(cardUID.c_str()); 
 
-//         // Flash onboard LED rapidly to indicate a successful read
-//         for(int i = 0; i < 5; i++) {
-//             digitalWrite(ONBOARD_LED_PIN, HIGH);
-//             sleep_ms(50);
-//             digitalWrite(ONBOARD_LED_PIN, LOW);
-//             sleep_ms(50);
-//         }
-//     }
+        // Flash onboard LED rapidly to indicate a successful read
+        for(int i = 0; i < 5; i++) {
+            digitalWrite(ONBOARD_LED_PIN, HIGH);
+            sleep_ms(50);
+            digitalWrite(ONBOARD_LED_PIN, LOW);
+            sleep_ms(50);
+        }
+    }
     
 //     // Small delay to keep the loop smooth when no card is present
 //     sleep_ms(100);
 
-printf("Running pump Forward at 50%% speed...\n");
-    // Run forward (true) at 50% speed
-    water_pump_set_direction(true);
-    water_pump_set_speed(50);
+// printf("Running pump Forward at 50%% speed...\n");
+//     // Run forward (true) at 50% speed
+//     water_pump_set_direction(true);
+//     water_pump_set_speed(50);
 
-    // Keep it running for 5 seconds
-    sleep_ms(5000); 
+//     // Keep it running for 5 seconds
+//     sleep_ms(5000); 
 
-    printf("Stopping pump.\n");
-    // Turn the pump off
-    water_pump_off();
+//     printf("Stopping pump.\n");
+//     // Turn the pump off
+//     water_pump_off();
 
-    // Wait for 2 seconds
-    sleep_ms(2000);
+//     // Wait for 2 seconds
+//     sleep_ms(2000);
 
-    printf("Running pump Reverse at 80%% speed...\n");
-    // Run in reverse (false) at 80% speed
-    water_pump_set_direction(false);
-    water_pump_set_speed(80);
+//     printf("Running pump Reverse at 80%% speed...\n");
+//     // Run in reverse (false) at 80% speed
+//     water_pump_set_direction(false);
+//     water_pump_set_speed(80);
 
-    // Keep it running for 5 seconds
-    sleep_ms(5000);
+//     // Keep it running for 5 seconds
+//     sleep_ms(5000);
 
-    printf("Stopping pump. Repeating sequence in 2 seconds.\n");
-    water_pump_off();
+//     printf("Stopping pump. Repeating sequence in 2 seconds.\n");
+//     water_pump_off();
 
-    // Wait for 2 seconds before the loop repeats
-    sleep_ms(2000);
+//     // Wait for 2 seconds before the loop repeats
+//     sleep_ms(2000);
 }
